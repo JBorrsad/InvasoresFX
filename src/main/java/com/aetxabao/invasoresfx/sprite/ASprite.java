@@ -82,6 +82,40 @@ public abstract class ASprite {
                 dst.left, dst.top, dst.width(), dst.height());
     }
 
-    public abstract void update();
+    public void setX(int x) {
+        this.x = x;
+    }
 
+
+    public int getX() {
+        return x;
+    }
+
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+
+    public int getY() {
+        return y;
+    }
+
+
+    public int getWidth() {
+        return width;
+    }
+
+
+    public int getHeight() {
+        return height;
+    }
+
+
+    public abstract void update();
 }
+
+
+
+
+

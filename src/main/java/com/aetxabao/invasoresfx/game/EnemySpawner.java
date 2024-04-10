@@ -57,9 +57,12 @@ public class EnemySpawner {
             default:
                 enemies = crearEnemigosNivelPulpo(gameRect);
                 break;
+            case 4:
+                enemies: crearEnemigosNivelJuan(gameRect);
         }
         return enemies;
     }
+
 
     /**
      * Crea un enemigo en una coordenada (i,j) con una velocidad (vx,vy)
@@ -105,6 +108,38 @@ public class EnemySpawner {
         EnemyShipGroup eg1 = new EnemyShipGroup(gameRect, el1);
         eg1.setXSpeed(vx);
         enemies.add(eg1);
+        return enemies;
+    }
+
+    public static List<AEnemy> crearEnemigosNivelJuan(Rect gameRect) {
+        List<AEnemy> enemies = new ArrayList<>();
+        List<EnemyShip> enemyShips = new ArrayList<>();
+
+        // Crear las naves enemigas
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 0, vx, 0, E_SHOT_GUN));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 1, -vx, 0, E_SHOT_GUN));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 2, 3, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 3, 2, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 4, 2, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 5, 3, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 2, 4, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 3, 5, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 4, 5, 0, 0, E_SHOT_NOTHING));
+        enemyShips.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_3, gameRect, 5, 4, 0, 0, E_SHOT_NOTHING));
+
+
+        for (EnemyShip ship : enemyShips) {
+            EnemyBarrier barrier = new EnemyBarrier(ENEMYBARRIER4_SPRITE_IMAGE, 1, 1, ship);
+            enemies.add(barrier);
+        }
+
+        enemies.addAll(enemyShips);
+
+
+        EnemyShipGroup eg1 = new EnemyShipGroup(gameRect, enemyShips);
+        eg1.setXSpeed(vx);
+        enemies.add(eg1);
+
         return enemies;
     }
 

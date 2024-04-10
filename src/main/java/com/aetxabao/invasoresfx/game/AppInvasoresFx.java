@@ -22,7 +22,7 @@ public class AppInvasoresFx extends Application {
     //region atributtes
     private static GraphicsContext gc;
     private static GameManager gameManager;
-    private static Rect gameRect;
+    public static Rect gameRect;
     private long deltaTime;
 
     private static Renderer renderer;
